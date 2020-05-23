@@ -1,0 +1,32 @@
+package nineleaps;
+
+public class FindMaxProfit {
+
+	public static void main(String[] args) {
+		//int[] arr = { 2, 4, 11, 6, 10 };
+		int[] arr = {10,15,16,5,11,12,21,19,18,20};
+		calculateProfit(arr);
+
+	}
+
+	private static void calculateProfit(int[] arr) {
+		int max = Integer.MIN_VALUE;
+		int startIndex = 0;
+		int endIndex = 0;
+		for (int i = 0; i < arr.length - 1; i++) {
+
+			for (int j = i + 1; j < arr.length; j++) {
+
+				if (arr[j] - arr[i] > max) {
+					max = arr[j] - arr[i];
+					startIndex = i;
+					endIndex = j;
+				}
+			}
+
+		}
+		System.out.println("Start Index is : " + startIndex + " End Index is : " + endIndex);
+
+	}
+
+}
