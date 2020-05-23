@@ -1,0 +1,33 @@
+package nineleaps;
+
+public class MaxConsucative {
+
+	public static void main(String[] args) {
+		int[] arr = { 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1 };
+		System.out.println(maxConsucative(arr));
+
+	}
+
+	private static int maxConsucative(int[] arr) {
+		int maxCount = Integer.MIN_VALUE;
+		int counter = 0;
+		for (int i = 0; i < arr.length - 1;) {
+			if (arr[i] == 1 && arr[i + 1] == 1) {
+				counter = counter + 2;
+				i = i + 2;
+				if (counter > maxCount) {
+
+					maxCount = counter;
+				}
+			} else {
+				counter = 0;
+				i++;
+			}
+		}
+		if (arr[arr.length - 1] == 1) {
+			maxCount += 1;
+		}
+		return maxCount;
+	}
+
+}
